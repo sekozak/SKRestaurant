@@ -1,0 +1,132 @@
+h1{
+    font-size: 9vw;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 30px;
+}
+.logo{
+    display: block;
+    background: linear-gradient(to top right, rgb(0, 195, 255), rgb(255, 255, 255));
+    color: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h4{
+    font-size: 25px;
+}
+h1, h4{
+    color: lightblue;
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.glass{
+    background-color: rgba(255, 255, 255, 0.158);
+    border-radius: 50px;
+    padding: 30px;
+    width: 70%;
+    margin: 30px auto;
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+.dots{
+    position: absolute;
+    width: 40vw;
+    animation: rotate 14s linear infinite;
+    z-index: -1;
+    top: 100px;
+    right: 130px;
+    color: white;
+}
+
+.map {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 16px 14px 20px #0000008c;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.map::before{
+    content: "";
+    background-image: conic-gradient(
+        #00f7ff 20deg,
+        transparent 120deg
+    );
+    width: 250%;
+    height: 150%;
+    position: absolute;
+    animation: rotate 3s linear infinite;
+}
+.map::after{
+    width: 490px;
+    height: 390px;
+    position: absolute;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00f7ff;
+    font-size: larger;
+    letter-spacing: 5px;
+    box-shadow: inset 10px 10px 10px #0000008c;
+}
+.mapImg{
+    width: 490px;
+    height: 390px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 10px;
+}
+@media (max-width: 900px) {
+    .map {
+        width: 400px;
+        height: 300px;
+    }
+    .map::after{
+        width: 390px;
+        height: 290px;
+    }
+    .mapImg{
+        width: 390px;
+        height: 290px;
+    }
+}
+@media (max-width: 650px) {
+    .map {
+        width: 280px;
+        height: 180px;
+    }
+    .map::after{
+        width: 270px;
+        height: 170px;
+    }
+    .mapImg{
+        width: 270px;
+        height: 170px;
+    }
+}
+
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-360deg);
+    }
+}

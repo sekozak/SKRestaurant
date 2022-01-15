@@ -1,0 +1,53 @@
+<div class="container">
+    <h1>Nowa Rcenzja</h1>
+    <form #heroForm="ngForm">
+
+      <div class="form-group">
+        <input type="text" class="form-control" id="nick" placeholder=" "
+               required
+               [(ngModel)]="model.nick" name="nick"
+               #nick="ngModel"
+               pattern="[a-zA-Z ]*">
+               <label for="nick">Nick</label>
+        <div [hidden]="nick.valid || nick.pristine"
+          class="alert alert-danger">
+          Nick jest wymagany
+        </div>
+      </div>
+
+      <div class="form-group">
+          <input type="text" class="form-control" id="name" placeholder=" "
+                 required
+                 [(ngModel)]="model.name" name="name"
+                 #name="ngModel"
+                 pattern="[a-zA-Z ]*">
+                 <label for="name">Nazwa</label>
+          <div [hidden]="name.valid || name.pristine"
+            class="alert alert-danger">
+            Nazwa jest wymagana
+          </div>
+        </div>
+
+        <div class="form-group" class="opinionGrid">
+          <textarea type="text" class="form-control" id="content" placeholder=" "
+                 required
+                 [(ngModel)]="model.content" name="content"
+                 #content="ngModel"
+                 minlength="50" maxlength="500">
+          </textarea>
+          <label for="content">Opinia</label>
+          <div [hidden]="content.valid || content.pristine"
+            class="alert alert-danger">
+            Opinia musi miec od 50 do 500 znaków
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="date" class="form-control" id="date"
+                 [(ngModel)]="model.date" name="date"
+                 #date="ngModel">
+        </div>
+
+      <button type="button" class="btn btn-default" [disabled]="!heroForm.form.valid" (click)="senditem(); newHero(); heroForm.reset()">Dodaj</button>
+    </form>
+</div>

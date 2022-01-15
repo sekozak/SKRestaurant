@@ -1,0 +1,15 @@
+<div id="card" [ngClass]="{'cheap':info.price==minprice, 'expensive':info.price==maxprice}">
+    <button class="delite" (click)="cardix()">X</button>
+    <span class="available" [ngClass]="{'lowAvailable':available < 4}">{{available}}</span>
+    
+    <a routerLink="/dish-details/{{ix}}"> <img src="{{info.link[0]}}"> </a>
+    <h1>{{info.name | uppercase}}</h1>
+    <p> {{price}}  {{currency}}</p>
+
+    <div class="bot">
+        <span>{{quantity}} </span>
+        <button [ngClass]="{'plusHide':available === 0}" class="plus" (click)="add();addchosen()">+</button>
+        <button [ngClass]="{'minusHide':quantity === 0}" class="minus" (click)="remove();removechosen()">-</button>
+    </div>
+</div>
+

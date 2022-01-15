@@ -1,0 +1,12 @@
+<h1 id="menu">MENU</h1>
+
+<span>{{searchType}} {{searchCountry}} {{searchPrice}} {{searchRating}}</span>
+<app-filter (newItemEvent)="setRating($event)" (newItemEvent2)="setCountry($event)" (newItemEvent3)="setType($event)" (newItemEvent4)="setPrice($event)"
+[countrylist]="countrylist" [typelist]="typelist" [pricelist]="pricelist"></app-filter>
+
+<div id="dishframe">
+    <p [ngClass]="{'over10':chosen>10}">{{chosen}}</p>
+    <button class="currency" (click)="currencyButton()">{{currency}}</button>
+    <dish *ngFor="let d of (dishlist | searchPipe :searchCountry: searchType: searchPrice: searchRating); let i=index" [info]="d" [ix]="i" [currency]="currency" 
+    [minprice]="minprice" [maxprice]="maxprice"></dish>
+</div>

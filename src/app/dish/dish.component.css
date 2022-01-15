@@ -1,0 +1,77 @@
+#card{
+    display: grid;
+    grid-template-columns: 30% 45% 10% 15%;
+    width: 70vw;
+    min-height: 140px;
+    background: linear-gradient(to top right, rgb(0, 195, 255), lightblue);
+    font-weight: bold;
+    box-shadow: 0 0 20px white;
+    position: relative;
+    align-items: center;
+}
+@media (max-width: 900px) {
+    #card{
+        width: 50vw;
+        grid-template-columns: auto;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
+.top{
+    height: 80%;
+    overflow: hidden;
+}
+.bot{
+    overflow: hidden;
+    min-height: 30px;
+    margin: 10px;
+    height: 20%;
+}
+.available{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    min-width: 20px;
+    border-radius: 20px;
+    background-color: rgba(36, 36, 36, 0.637);
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+button{
+    background-color: rgb(31, 30, 30);
+    color: white;
+    padding: 5px;
+}
+.plus, .minus{
+    width: 30px;
+}
+.plusHide, .minusHide{
+    display: none;
+}
+.lowAvailable{
+    color: rgb(255, 59, 59);
+}
+img{
+    width: 200px;
+    display: block;
+}
+.expensive{
+    border:2px solid green;
+}
+.cheap{
+    border:2px solid red;
+}
+
+.delite{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: red;
+    color: white;
+    border-color: red;
+}

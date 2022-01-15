@@ -1,0 +1,93 @@
+#card{
+    width: 400px;
+    height: 600px;
+    margin: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(to top right, rgb(0, 195, 255), lightblue);
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 20px white;
+}
+img{
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 0 20px white;
+}
+@media (max-width: 900px) {
+    #card{
+        width: 300px;
+        height: 500px;
+    }
+    img{
+        height: 150px;
+    }
+}
+/* @media (max-width: 700px) {
+    #card{
+        width: 250px;
+        height: 400px;
+        margin-left: 0px;
+    }
+    img{
+        height: 120px;
+    }
+} */
+
+.top{
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+}
+.bot{
+    overflow: hidden;
+    height: 20%;
+}
+.available{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    min-width: 20px;
+    border-radius: 20px;
+    background-color: rgba(36, 36, 36, 0.637);
+    color: white;
+    font-size: 20px;
+}
+button{
+    background-color: rgb(31, 30, 30);
+    color: white;
+    padding: 5px;
+}
+.plus, .minus{
+    width: 30px;
+}
+.plusHide, .minusHide{
+    display: none;
+}
+.lowAvailable{
+    color: rgb(255, 59, 59);
+}
+.expensive{
+    border:2px solid green;
+}
+.cheap{
+    border:2px solid red;
+}
+
+.imgSlider{
+    position: relative;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sliderBtn1, .sliderBtn2{
+    position: absolute;
+    background-color: rgba(128, 128, 128, 0.527);
+    border-color: white;
+    top: 40%;
+}
+.sliderBtn2{
+    right: 0px;
+}

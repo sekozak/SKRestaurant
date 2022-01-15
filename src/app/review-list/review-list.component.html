@@ -1,0 +1,9 @@
+<p class="title">----------Lista recenzji----------</p>
+
+<div *ngFor="let r of reviews; let i=index">
+    <p>RECENZJA NR.{{i+1}}</p>
+    <p>Nick: {{r.nick}}</p> 
+    <p>Nazwa: {{r.name}}</p> 
+    <p>{{r.content}}</p> 
+    <p>{{r.date}}</p> 
+</div>

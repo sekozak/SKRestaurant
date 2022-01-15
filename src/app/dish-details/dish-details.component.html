@@ -1,0 +1,24 @@
+<div id="card" >
+    <div class="top">
+        <div class="imgSlider">
+            <button class="sliderBtn1" (click)="next()"> < </button>
+            <button class="sliderBtn2" (click)="prev()"> > </button>
+            <img src="{{card.link[ix]}}">
+        </div>
+        <h1>{{card.name | uppercase}}</h1>
+        <span class="available" [ngClass]="{'lowAvailable':available < 4}">{{available}}</span>
+        <p>{{card.country}}</p>
+        <p>{{card.type}}</p>
+        <p>{{card.ingredients}}</p>
+        <p>{{price}}  {{currency}}</p>
+        <p>{{card.description}}</p>
+    </div>
+    <div class="bot">
+        <span>{{quantity}} </span>
+        <button [ngClass]="{'plusHide':available === 0}" class="plus" (click)="add();addchosen()">+</button>
+        <button [ngClass]="{'minusHide':quantity === 0}" class="minus" (click)="remove();removechosen()">-</button>
+        <app-rating (newItemEvent)="ratingUpdate($event)"></app-rating>
+    </div>
+</div>
+<app-dish-review [card]="card"></app-dish-review>
+<app-review-list [card]="card"></app-review-list>

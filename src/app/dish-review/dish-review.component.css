@@ -1,0 +1,87 @@
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }
+
+.container{
+    border: 3px solid grey;
+    background: linear-gradient(to top right, rgb(0, 195, 255), lightblue);
+    text-align: center;
+    padding: 30px;
+    margin: 50px;
+    margin-top: 50px;
+}
+@media (max-width: 900px) {
+  .container{
+    padding: 5px;
+  }
+}
+/* @media (max-width: 700px) {
+  .container{
+    margin-left: 0px;
+    width: 250px;
+  }
+} */
+.form-group{
+  position: relative;
+  max-width: 250px;
+  width: 90%;
+  margin: 30px;
+  align-items: center;
+  margin: 20px auto;
+}
+.opinionGrid{
+  position: relative;
+  width: 70%;
+  max-width: 600px;
+  margin: 10px auto;
+}
+label{
+  position: absolute;
+  top: 6px;
+  left: 35px;
+  transition: left 0.5s ease-in-out, opacity 0.5s;
+  color: gray;
+}
+input{
+  height: 25px;
+  border-radius: 10px;
+  max-width: 200px;
+  width: 80%;
+}
+input,button,textarea{
+  box-shadow: 0px 4px 8px 0 grey;
+  transition: box-shadow 0.5s;
+}
+input:hover, button:hover,textarea:hover{
+  box-shadow: 0px 8px 14px 2px grey;
+}
+input:focus,textarea:focus{
+  outline: 2px solid white;
+}
+input:focus + label, input:not(:placeholder-shown) + label,
+textarea:focus + label, textarea:not(:placeholder-shown) + label{
+  left: 300px;
+  opacity: 0;
+}
+
+button{
+  background-color: rgba(0, 0, 0, 0.616);
+  border: 2px solid white;
+  color: white;
+  margin: 20px;
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#content{
+  margin-left: 10px;
+  width: 90%;
+  height: 120px;
+  border-radius: 10px;
+}
