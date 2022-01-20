@@ -3,11 +3,12 @@
     grid-template-columns: 30% 45% 10% 15%;
     width: 70vw;
     min-height: 140px;
-    background: linear-gradient(to top right, rgb(0, 195, 255), lightblue);
+    background-color: rgba(0, 4, 250, 0.13);
     font-weight: bold;
-    box-shadow: 0 0 20px white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     position: relative;
     align-items: center;
+    color: white;
 }
 @media (max-width: 900px) {
     #card{

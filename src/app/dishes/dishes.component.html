@@ -1,6 +1,5 @@
 <h1 id="menu">MENU</h1>
 
-<span>{{searchType}} {{searchCountry}} {{searchPrice}} {{searchRating}}</span>
 <app-filter (newItemEvent)="setRating($event)" (newItemEvent2)="setCountry($event)" (newItemEvent3)="setType($event)" (newItemEvent4)="setPrice($event)"
 [countrylist]="countrylist" [typelist]="typelist" [pricelist]="pricelist"></app-filter>
 

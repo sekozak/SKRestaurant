@@ -10,8 +10,8 @@ h1{
   font-size: 40px;
 }
 .container{
-    border: 3px solid grey;
-    background: linear-gradient(to top right, rgb(0, 195, 255), lightblue);
+    /* border: 3px solid grey;
+    background: linear-gradient(to top right, rgb(0, 195, 255), lightblue); */
     text-align: center;
     min-height: 600px;
     width: 80%;
