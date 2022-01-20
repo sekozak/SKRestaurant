@@ -13,8 +13,7 @@
     background: linear-gradient(to top right, green, lime);
     width: fit-content;
     text-align: right;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px auto;
     font-size: 21px;
     padding: 30px;
     border-radius: 20px;
@@ -46,7 +45,7 @@
 
 .currency{
     position: absolute;
-    top: 20px;
+    top: 70px;
     right: 20px;
     padding: 10px;
     font-size:20px;

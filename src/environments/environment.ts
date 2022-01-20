@@ -5,15 +5,15 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyDD32uEdlNqU4RFbz6VYtyGs2F2tC6jWeA",
-    authDomain: "zestaw5zad5.firebaseapp.com",
-    projectId: "zestaw5zad5",
-    storageBucket: "zestaw5zad5.appspot.com",
-    messagingSenderId: "942318761515",
-    appId: "1:942318761515:web:215d1c3172a3493b741c6e",
-    measurementId: "G-26H6X470NS"
+    apiKey: "AIzaSyArT0WdjUOZ0H_NLdKB6v6gCp3pdsI89Q4",
+    authDomain: "zestaw6.firebaseapp.com",
+    projectId: "zestaw6",
+    storageBucket: "zestaw6.appspot.com",
+    messagingSenderId: "571097353040",
+    appId: "1:571097353040:web:6547be1c3528c80b3fba55",
+    measurementId: "G-2WWN18419W"
   }
-};
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

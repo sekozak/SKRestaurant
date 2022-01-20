@@ -19,7 +19,7 @@
 
 .currency{
     position: absolute;
-    top: 20px;
+    top: 70px;
     right: 20px;
     padding: 10px;
     font-size:20px;
@@ -33,7 +33,7 @@
 
 p{
     position: absolute;
-    top: 30px;
+    top: 70px;
     right: 80px;
     padding: 0px 10px;
     text-align: center;
@@ -41,6 +41,7 @@ p{
     background-color: rgb(189, 123, 0);
     border-radius: 50%;
     color: white ;
+    z-index: 1;
 }
 .over10{
     background-color: darkblue;

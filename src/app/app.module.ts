@@ -24,6 +24,8 @@ import { CurrencyStorageService } from './currency-storage.service';
 import { StorageService } from './storage.service';
 import { ReviewStorageService } from './review-storage.service';
 import { ReviewListComponent } from './review-list/review-list.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 // import { GoogleMapsModule } from '@angular/google-maps'
 
@@ -41,6 +43,8 @@ import { ReviewListComponent } from './review-list/review-list.component';
     DishDetailsComponent,
     DishReviewComponent,
     ReviewListComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

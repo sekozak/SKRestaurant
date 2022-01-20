@@ -5,12 +5,16 @@ import { DishDetailsComponent } from './dish-details/dish-details.component';
 import { DishesComponent } from './dishes/dishes.component';
 import { FormComponent } from './form/form.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [{ path: 'home', component: HomeComponent }, 
 { path: 'menu', component: DishesComponent }, 
 { path: 'dish-details/:id', component: DishDetailsComponent }, 
 { path: 'add', component: FormComponent }, 
 { path: 'bucket', component: BucketComponent },
+{ path: 'login', component: LoginComponent },
+{ path: 'register', component: RegisterComponent },
 { path: '', redirectTo: '/home', pathMatch: 'full' }, 
 { path: '**', component: HomeComponent }];
 
