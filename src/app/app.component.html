@@ -13,10 +13,11 @@
                     <a routerLink="/add" routerLinkActive="active"><span class="span"></span>Nowe danie</a>
                 </div>
                 <div class="rightMenu">
+                    <a [ngClass]="{'loged':!logged}"><span class="span"></span>{{nick}}</a>
                     <a routerLink="/bucket" routerLinkActive="active"><span class="span"></span>Koszyk</a>
-                    <a routerLink="/login" routerLinkActive="active"><span class="span"></span>Login</a>
-                    <a routerLink="/register" routerLinkActive="active"><span class="span"></span>Register</a>
-                    <a routerLink="/home" class="loged"><span class="span"></span>Logout</a>
+                    <a routerLink="/login" routerLinkActive="active" [ngClass]="{'loged':logged}"><span class="span"></span>Login</a>
+                    <a routerLink="/register" routerLinkActive="active" [ngClass]="{'loged':logged}"><span class="span"></span>Register</a>
+                    <a routerLink="/home" (click)="logout()" [ngClass]="{'loged':!logged}"><span class="span"></span>Logout</a>
                 </div>
             </div> 
         </nav>

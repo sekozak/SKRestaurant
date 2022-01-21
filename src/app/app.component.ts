@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthorizationService } from './authorization.service';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'zad8';
+  logged!:boolean;
+  nick:string='---';
+  constructor(public Auth: AuthorizationService){
+    this.Auth.authState$.subscribe(state => {
+      if(state !== null) this.logged=true; 
+      else this.logged=false; 
+    });
+    this.Auth.authState$.subscribe(state => {
+      if(state?.displayName != null) this.nick=state.displayName;
+    });
+  }
   menuOpen = false;
   toogle(){
     if(!this.menuOpen) {
@@ -14,6 +25,10 @@ export class AppComponent {
     } else {
       this.menuOpen = false;
     }
+  }
+
+  logout(){
+    this.Auth.SignOut();
   }
 
 }

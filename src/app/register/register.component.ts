@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   }
 
   senditem() {
-    this.authService.SignUp(this.login,this.password);
+    this.authService.SignUp(this.login,this.password,this.nick);
   }
 
   newHero() {
