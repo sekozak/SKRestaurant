@@ -116,6 +116,25 @@ export class StorageService implements Cobserver{
   }
 
 
+  changeMenager(u:User){
+    let bool=true;
+    if(u.menager) bool=false;
+    this.usersList.doc(u.id).update({menager: bool});
+  }
+  changeAdmin(u:User){
+    let bool=true;
+    if(u.admin) bool=false;
+    this.usersList.doc(u.id).update({admin: bool});
+  }
+  changeBanned(u:User){
+    let bool=true;
+    if(u.banned) bool=false;
+    this.usersList.doc(u.id).update({banned: bool});
+  }
+
+
+
+
   observers:Observer[]=[];
   addObserver(o: Observer): void {
     if(!this.observers.includes(o)) this.observers.push(o);

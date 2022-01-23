@@ -17,7 +17,17 @@ export class AppComponent {
   constructor(public Auth: AuthorizationService, private storage:StorageService){
     this.Auth.authState$.subscribe(state => {
       if(state !== null) this.logged=true; 
-      else this.logged=false; 
+      else this.logged=false;
+      this.admin=false;this.menager=false; 
+      this.userlist.forEach(x =>{
+        if(x.id === state?.uid){
+          this.nick=x.nick;
+          if(x.admin) this.admin=true;
+          else this.admin=false;
+          if(x.menager) this.menager=true;
+          else this.menager=false;
+        };
+      });
     });
 
     this.getUserlist();
@@ -40,7 +50,7 @@ export class AppComponent {
         });
       });
 
-      console.log(this.userlist);
+      // console.log(this.userlist);
     });
   }
 

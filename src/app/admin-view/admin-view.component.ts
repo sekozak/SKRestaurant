@@ -13,11 +13,23 @@ export class AdminViewComponent implements OnInit {
     this.getUserlist();
    }
 
+   b=true;
 
   getUserlist(){
   this.storage.getuserlistSubject().subscribe(u=>{
     this.userlist=u;
     });
+  }
+
+  changeMenager(u:User){
+    this.storage.changeMenager(u);
+  }
+  changeAdmin(u:User){
+    this.storage.changeAdmin(u);
+  }
+  changeBanned(u:User){
+    if(u.admin) alert("Can't ban ADMIN")
+    else this.storage.changeBanned(u);
   }
 
 

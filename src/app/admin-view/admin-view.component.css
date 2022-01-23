@@ -19,7 +19,12 @@
     padding: 40px;
     background-color: darkcyan;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 .grid > span:hover{
-    background-color: darkred;
+    transform: scale(1.1);
+}
+
+.clicked{
+    background-color: darkred !important;
 }
