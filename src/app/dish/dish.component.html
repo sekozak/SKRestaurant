@@ -7,7 +7,7 @@
 
     <div class="bot">
         <span>{{quantity}} </span>
-        <button [ngClass]="{'plusHide':available === 0}" class="plus" (click)="add();addchosen()">+</button>
-        <button [ngClass]="{'minusHide':quantity === 0}" class="minus" (click)="remove();removechosen()">-</button>
+        <button [ngClass]="{'plusHide':available === 0}" class="plus" (click)="addchosen()">+</button>
+        <button [ngClass]="{'minusHide':quantity === 0}" class="minus" (click)="removechosen()">-</button>
     </div>
 </div>

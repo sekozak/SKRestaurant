@@ -1,7 +1,7 @@
 <div *ngFor="let l of list ; let i=index" class="card">
     <div class="grid">
         <span class="name">{{l.name}}</span> 
-        <span class="quantity">{{l.choosen}} x {{prices[i]}}{{currency}}</span>
+        <span class="quantity">{{counter[i]}} x {{prices[i]}}{{currency}}</span>
     </div> 
 </div>
 <div class="sum"> Total:  {{sum}} {{currency}} </div>

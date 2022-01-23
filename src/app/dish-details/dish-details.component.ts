@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthorizationService } from '../authorization.service';
 import { BucketStorage } from '../bucketStorage';
 import { CurrencyStorageService } from '../currency-storage.service';
 import { Data } from '../data';
@@ -20,20 +21,18 @@ export class DishDetailsComponent implements OnInit {
   imgLen:number;
   ix=0;
 
-  constructor(private bucketObject:BucketStorage, private router:ActivatedRoute,private storage:StorageService,private currencyStorage:CurrencyStorageService) {
+  constructor(private bucketObject:BucketStorage, private router:ActivatedRoute,private storage:StorageService,private currencyStorage:CurrencyStorageService,private Auth: AuthorizationService) {
     this.id=this.router.snapshot.params['id'];
     this.card=this.storage.getdishlist()[this.id];
 
-    // this.quantity=this.bucketObject.getPickedNumber(this.card);
-    this.quantity=this.card.choosen;
+    this.quantity=this.bucketObject.getPickedNumber(this.card);
     this.available=this.card['output']-this.quantity;
     this.price=this.calculatePrice();
     this.imgLen=this.card.link.length;
 
   }
   ngOnInit(): void {
-    // this.quantity=this.bucketObject.getPickedNumber(this.card);
-    this.quantity=this.card.choosen;
+    this.quantity=this.bucketObject.getPickedNumber(this.card);
     this.available=this.card.output-this.quantity;
     this.price=this.calculatePrice();
   }
@@ -46,10 +45,14 @@ export class DishDetailsComponent implements OnInit {
   addchosen() {
     this.bucketObject.pushToOrders(this.card);
     this.storage.updateChoosen(this.card.id!,this.card.choosen+1);
+    this.quantity++;
+    this.available=this.card.output-this.quantity;
   }
   removechosen() {
     this.bucketObject.removeFromOrders(this.card);
     this.storage.updateChoosen(this.card.id!,this.card.choosen-1);
+    this.quantity--;
+    this.available=this.card.output-this.quantity;
   }
   ratingUpdate(star:number){
     // this.newItemEvent3.emit([this.ix,star]);
@@ -74,13 +77,5 @@ export class DishDetailsComponent implements OnInit {
 
   ngOnChanges(){
     this.price=this.calculatePrice();
-  }
-  add(){
-    this.quantity++;
-    this.available=this.card.output-this.quantity;
-  }
-  remove(){
-    this.quantity--;
-    this.available=this.card.output-this.quantity;
   }
 }

@@ -16,17 +16,25 @@ export class StorageService implements Cobserver{
   userlist:User[];
   userSubject: BehaviorSubject<User[]>;
 
+  bucketlist:any[];
+  bucketSubject: BehaviorSubject<any[]>;
+
+  bucketsList : AngularFirestoreCollection<any>;
   dishesList : AngularFirestoreCollection<any>;
   usersList : AngularFirestoreCollection<any>;
   constructor(private db: AngularFirestore) {
     this.dishlist=[];
     this.userlist=[];
+    this.bucketlist=[];
+    this.bucketSubject = new BehaviorSubject<any[]>(this.bucketlist);
     this.dishSubject = new BehaviorSubject<Data[]>(this.dishlist);
     this.userSubject = new BehaviorSubject<User[]>(this.userlist);
+    this.bucketsList = this.db.collection('/buckets');
     this.usersList = this.db.collection('/users');
     this.dishesList = this.db.collection('/dishes');
     this.getDishlistFromFire();
     this.getUserListFromFire();
+    this.getBucketListFromFire();
   }
 
 
@@ -56,12 +64,27 @@ export class StorageService implements Cobserver{
             admin: c.payload.doc.data().admin,
             menager: c.payload.doc.data().menager,
             banned: c.payload.doc.data().banned,
-            bucket: c.payload.doc.data().bucket,
           })
         ))
     ).subscribe(x =>{
        this.userlist = x;
        this.userSubject.next(this.userlist);
+      });
+  }
+
+  getBucketListFromFire(){
+    this.bucketsList.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({
+            id: c.payload.doc.id,
+            dish: c.payload.doc.data().dish,
+            quantity: c.payload.doc.data().quantity,
+          })
+        ))
+    ).subscribe(x =>{
+       this.bucketlist = x;
+       this.bucketSubject.next(this.bucketlist);
       });
   }
 
@@ -89,6 +112,13 @@ export class StorageService implements Cobserver{
   }
   public getuserlist(){
     return this.userlist;
+  }
+
+  public getbucketlistSubject(): Observable<User[]>{
+    return this.bucketSubject.asObservable();
+  }
+  public getbucketlist(){
+    return this.bucketlist;
   }
 
   public pushDish(d:Data): void{

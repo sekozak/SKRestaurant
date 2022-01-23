@@ -1,4 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthorizationService } from '../authorization.service';
 import { BucketStorage } from '../bucketStorage';
 import { CurrencyStorageService } from '../currency-storage.service';
 import { StorageService } from '../storage.service';
@@ -20,22 +22,38 @@ export class DishComponent implements OnInit {
   price:number;
 
 quantity:number=0;
-constructor(private storage:StorageService,private bucketObject:BucketStorage,private currencyStorage:CurrencyStorageService){
+constructor(private storage:StorageService,private bucketObject:BucketStorage,private currencyStorage:CurrencyStorageService,private Auth: AuthorizationService, private router:Router){
   this.available=0;
   this.price=this.calculatePrice();
 }
 ngOnInit(): void {
-  this.quantity=this.info.choosen;
+  this.quantity=this.bucketObject.getPickedNumber(this.info);
   this.available=this.info.output-this.quantity;
   this.price=this.calculatePrice();
 }
 
 
   addchosen() {
-    this.storage.updateChoosen(this.info.id,this.info.choosen+1);
+    this.Auth.authState$.subscribe(state => {
+      if(state === null) this.router.navigate(['login']);
+      else{
+        this.bucketObject.pushToOrders(this.info);
+        this.storage.updateChoosen(this.info.id,this.info.choosen+1);
+        this.quantity++;
+        this.available=this.info.output-this.quantity;
+      } 
+    });
   }
   removechosen() {
-    this.storage.updateChoosen(this.info.id,this.info.choosen-1);
+    this.Auth.authState$.subscribe(state => {
+      if(state === null) this.router.navigate(['login']);
+      else{
+        this.bucketObject.removeFromOrders(this.info);
+        this.storage.updateChoosen(this.info.id,this.info.choosen-1);
+        this.quantity--;
+        this.available=this.info.output-this.quantity;
+      }
+    });
   }
 
   calculatePrice(){
@@ -48,15 +66,6 @@ ngOnInit(): void {
 
   ngOnChanges(){
     this.price=this.calculatePrice();
-  }
-
-  add(){
-    this.quantity++;
-    this.available=this.info.output-this.quantity;
-  }
-  remove(){
-    this.quantity--;
-    this.available=this.info.output-this.quantity;
   }
 
 }

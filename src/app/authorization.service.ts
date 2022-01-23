@@ -29,6 +29,11 @@ export class AuthorizationService {
         banned: false
       });
 
+      this.db.collection('/buckets').doc(`${res.user!.uid}`).set({
+        dish: [],
+        quantity: []
+      });
+
       // this.angularFireAuth.signOut();
 
       console.log('You are Successfully signed up!', res);

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorizationService } from '../authorization.service';
 import { BucketStorage } from '../bucketStorage';
 import { CurrencyStorageService } from '../currency-storage.service';
 import { Data } from '../data';
 import { Observer } from '../observer';
-import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-bucket',
@@ -12,47 +12,39 @@ import { StorageService } from '../storage.service';
 })
 export class BucketComponent implements OnInit,Observer {
 
-  dlist:Data[]=[];
   list:Data[]=[];
-  counter:Number[];
+  counter:number[]=[];
   sum:number;
   currency:string;
 
-  constructor(private storage:StorageService,private bucketObject:BucketStorage, private currencyObject:CurrencyStorageService) {
+  constructor(private bucketObject:BucketStorage, private currencyObject:CurrencyStorageService,private Auth: AuthorizationService) {
       this.bucketObject.addObserver(this);
       this.currencyObject.addObserver(this);
 
-      // this.list=bucketObject.getOrders();
-      this.counter=bucketObject.getQuantity();
+      this.Auth.authState$.subscribe(state => {
+        if(state!==null){
+          this.list=bucketObject.getOrders();
+          this.counter=bucketObject.getQuantity();
+          this.currencyConverter();
+        }
+      });
 
-      this.getDishlist();
 
       this.currency=currencyObject.getcurrency();
       this.sum=this.orderSum();
+
   }
 
-  ngOnInit(): void {
-    this.getDishlist();
-  }
+  ngOnInit(): void {}
 
   // -------------firebase-----------
-  getDishlist(){ 
-    this.list=[];
-    this.storage.getdishlistSubject().subscribe(dish=>{
-      dish.forEach(e=>{
-        if(e.choosen!=0 && !this.list.includes(e)) this.list.push(e);
-      });
-      this.currencyConverter();
-      this.sum=this.orderSum();
-    });
-   }
 
   // -----------firebase-----------
   
   orderSum(){
     let i=0,s=0;
     this.list.forEach(e => {
-      s+=e.price*e.choosen;
+      s+=e.price*this.counter[i];
       i++;
     });
     if(this.currency==="USD") s*=1.25;
@@ -60,13 +52,12 @@ export class BucketComponent implements OnInit,Observer {
   }
 
   update(): void {
-    // this.list=this.bucketObject.getOrders();
-    // this.counter=this.bucketObject.getQuantity();
-    // this.sum=this.orderSum();
+    this.list=this.bucketObject.getOrders();
+    this.counter=this.bucketObject.getQuantity();
+    this.sum=this.orderSum();
   }
 
   // --------------
-
 
 
 
