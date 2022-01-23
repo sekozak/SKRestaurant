@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
 import { AuthorizationService } from '../authorization.service';
 
 @Component({
@@ -12,9 +11,7 @@ export class LoginComponent implements OnInit {
   password='';
   str='';
   constructor(private authService: AuthorizationService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   senditem() {
     this.authService.SignIn(this.login,this.password);

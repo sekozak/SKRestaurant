@@ -3,6 +3,7 @@ import { Data } from '../data';
 import { Observer } from '../observer';
 import { CurrencyStorageService } from '../currency-storage.service';
 import { StorageService } from '../storage.service';
+import { BucketStorage } from '../bucketStorage';
 
 @Component({
   selector: 'app-dishes',
@@ -32,7 +33,7 @@ export class DishesComponent implements OnInit, Observer {
   
   public dishlist:Data[]=[];
 
-  constructor(private storage:StorageService,private currencyObject:CurrencyStorageService) {
+  constructor(private storage:StorageService,private currencyObject:CurrencyStorageService,private bucketObject:BucketStorage) {
     this.currencyObject.addObserver(this);
     this.currency=currencyObject.getcurrency();
 
@@ -118,8 +119,9 @@ export class DishesComponent implements OnInit, Observer {
   chosen=0;
   updateQuantity(){
     this.chosen=0;
-    this.dishlist.forEach(e => {
-      this.chosen+=e.choosen;
+    let list=this.bucketObject.getQuantity();
+    list.forEach(e => {
+      this.chosen+=e;
     });
   }
 

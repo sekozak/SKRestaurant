@@ -1,7 +1,6 @@
 <h1 id="menu">MENU</h1>
 
 <div id="dishframe">
-    <p [ngClass]="{'over10':chosen>10}">{{chosen}}</p>
     <button class="currency" (click)="currencyButton()">{{currency}}</button>
     <edit-dish *ngFor="let d of dishlist; let i=index" [info]="d" [ix]="i" [currency]="currency"></edit-dish>
 </div>

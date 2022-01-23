@@ -9,6 +9,11 @@
     align-items: center;
 }
 
+p{
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 40px;
+}
+
 .box{
     width: 90%;
     margin: 100px auto;
@@ -21,7 +26,7 @@
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
-.grid > span:hover{
+.role:hover{
     transform: scale(1.1);
 }
 

@@ -13,14 +13,11 @@ export class RegisterComponent implements OnInit {
   password='';
   str='';
   constructor(private authService: AuthorizationService,private storage:StorageService) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   senditem() {
     this.authService.SignUp(this.login,this.password,this.nick);
   }
-
 
   newHero() {
     this.nick='';

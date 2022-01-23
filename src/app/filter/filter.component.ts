@@ -48,12 +48,7 @@ export class FilterComponent implements OnInit {
     this.priceflag=this.price;
   }
 
-
-  constructor() { 
-  }
-
-  ngOnInit(): void {
-  }
-
+  constructor() { }
+  ngOnInit(): void {}
 
 }

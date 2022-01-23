@@ -31,7 +31,6 @@ import { EditDishComponent } from './edit-dish/edit-dish.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { AdminViewComponent } from './admin-view/admin-view.component';
 
-// import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   declarations: [

@@ -22,7 +22,7 @@ constructor(private storage:StorageService,private bucketObject:BucketStorage,pr
   this.price=this.calculatePrice();
 }
 ngOnInit(): void {
-  this.quantity=this.info.choosen;
+  this.quantity=this.bucketObject.getPickedNumber(this.info);
   this.available=this.info.output-this.quantity;
   this.price=this.calculatePrice();
 }
@@ -59,6 +59,5 @@ ngOnInit(): void {
     this.quantity--;
     this.available=this.info.output-this.quantity;
   }
-
 
 }

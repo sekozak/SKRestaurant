@@ -13,11 +13,7 @@ export class FormComponent implements OnInit {
 
   constructor(private storage:StorageService) {}
 
-
-
   senditem() {
-    // this.storage.create(this.model);
-
     this.model.link=this.str.split(",");
     this.storage.pushDish(this.model);
   }

@@ -34,16 +34,12 @@ export class AuthorizationService {
         quantity: []
       });
 
-      // this.angularFireAuth.signOut();
-
       console.log('You are Successfully signed up!', res);
-      console.log('Loged OUT');
     }).catch(error => {
       console.log('Something is wrong:', error.message);
     });
 
     this.router.navigate(['login']); 
-    // this.angularFireAuth.signOut();
   } 
 
     
@@ -63,6 +59,5 @@ export class AuthorizationService {
     this.router.navigate(['home']);
     console.log('Loged OUT');
   }
-
 
 }

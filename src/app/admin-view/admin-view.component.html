@@ -2,8 +2,8 @@
     <div class="grid" *ngFor="let u of userlist">
         <p>{{u.nick}}</p>
         <span>User</span>
-        <span (click)="changeMenager(u)" [ngClass]="{'clicked': u.menager}">Menager</span>
-        <span (click)="changeAdmin(u)" [ngClass]="{'clicked': u.admin }">Admin</span>
-        <span (click)="changeBanned(u)" [ngClass]="{'clicked': u.banned}">Banned</span>
+        <span class="role" (click)="changeMenager(u)" [ngClass]="{'clicked': u.menager}">Menager</span>
+        <span class="role" (click)="changeAdmin(u)" [ngClass]="{'clicked': u.admin }">Admin</span>
+        <span class="role" (click)="changeBanned(u)" [ngClass]="{'clicked': u.banned}">Banned</span>
     </div>
 </div>
