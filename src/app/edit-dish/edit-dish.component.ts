@@ -1,21 +1,18 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BucketStorage } from '../bucketStorage';
 import { CurrencyStorageService } from '../currency-storage.service';
 import { StorageService } from '../storage.service';
 
 @Component({
-  selector: 'dish',
-  templateUrl: './dish.component.html',
-  styleUrls: ['./dish.component.css']
+  selector: 'edit-dish',
+  templateUrl: './edit-dish.component.html',
+  styleUrls: ['./edit-dish.component.css']
 })
+export class EditDishComponent implements OnInit {
 
-
-export class DishComponent implements OnInit {
   @Input() info:any;
   @Input() currency='USD';
   @Input() ix=0;
-  @Input() maxprice=0;
-  @Input() minprice=0;
   available:number;
   price:number;
 
@@ -36,6 +33,10 @@ ngOnInit(): void {
   }
   removechosen() {
     this.storage.updateChoosen(this.info.id,this.info.choosen-1);
+  }
+  cardix() {
+    this.storage.deleteDishFromFire(this.info.id);
+    this.bucketObject.removeAllFromOrders(this.info);
   }
 
   calculatePrice(){
@@ -58,5 +59,6 @@ ngOnInit(): void {
     this.quantity--;
     this.available=this.info.output-this.quantity;
   }
+
 
 }

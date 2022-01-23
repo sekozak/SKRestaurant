@@ -1,7 +1,10 @@
 export class User{
     
-    login!: string;
-    nick!: string;
-    password!: string;
+  id?: string;
+  nick!: string;
+  bucket: string[] = [];
+  menager:boolean = false;
+  admin:boolean = false;
+  banned:boolean = false;
         
 }

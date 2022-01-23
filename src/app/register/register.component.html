@@ -12,19 +12,19 @@
         </div>
 
         <div class="form-group">
-            <input type="text" class="form-control" id="name" placeholder=" "
+            <input type="text" class="form-control" id="nick" placeholder=" "
                    required
-                   [(ngModel)]="nick" name="name"
+                   [(ngModel)]="nick" name="nick"
                    #name="ngModel">
-            <label for="name">Nazwa</label>
+            <label for="nick">Nazwa</label>
           </div>
 
         <div class="form-group">
-          <input type="password" class="form-control" id="country" placeholder=" "
+          <input type="password" class="form-control" id="pass" placeholder=" "
                   required
-                  [(ngModel)]="password" name="country"
-                  #country="ngModel">
-          <label for="country">Hasło</label>
+                  [(ngModel)]="password" name="pass"
+                  #pass="ngModel">
+          <label for="pass">Hasło</label>
         </div>
 
         <button type="button" class="btn btn-default" [disabled]="!heroForm.form.valid" (click)="senditem(); newHero(); heroForm.reset()">Zarejstruj</button>

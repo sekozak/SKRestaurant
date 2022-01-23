@@ -26,6 +26,10 @@ import { ReviewStorageService } from './review-storage.service';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { EditMenuComponent } from './edit-menu/edit-menu.component';
+import { EditDishComponent } from './edit-dish/edit-dish.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 // import { GoogleMapsModule } from '@angular/google-maps'
 
@@ -45,6 +49,10 @@ import { RegisterComponent } from './register/register.component';
     ReviewListComponent,
     LoginComponent,
     RegisterComponent,
+    EditMenuComponent,
+    EditDishComponent,
+    EditFormComponent,
+    AdminViewComponent,
   ],
   imports: [
     BrowserModule,

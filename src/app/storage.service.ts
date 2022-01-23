@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Cobserver } from './cobserver';
 import { Data } from './data';
 import { Observer } from './observer';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +12,23 @@ import { Observer } from './observer';
 export class StorageService implements Cobserver{
   dishlist:Data[];
   dishSubject:BehaviorSubject<Data[]>;
-  // new Data('Obiad2','włoska','kolacja','bataty stek salata',7,100,'pyszny fest git','/assets/meal.jpg',1),
-  // new Data('Kompot','polska','napoj','woda truskawki',117,4,'pyszny super git','/assets/kompot.jpeg',0),
-  // new Data('Kolacja1','włoska','miesny','ziemniaki kotlet salata',17,18,'pyszny obiad git','/assets/meal.jpg,/assets/kompot.jpeg',0),
-  // new Data('Obiad4','Polska','miesny','ziemniaki kotlet salata',15,10,'pyszny obiad git','/assets/meal.jpg',0),
 
+  userlist:User[];
+  userSubject: BehaviorSubject<User[]>;
 
-  private dbPath = '/dishes';
-  dishesList : AngularFirestoreCollection<Data>;
+  dishesList : AngularFirestoreCollection<any>;
+  usersList : AngularFirestoreCollection<any>;
   constructor(private db: AngularFirestore) {
     this.dishlist=[];
+    this.userlist=[];
     this.dishSubject = new BehaviorSubject<Data[]>(this.dishlist);
-    this.dishesList = db.collection(this.dbPath);
+    this.userSubject = new BehaviorSubject<User[]>(this.userlist);
+    this.usersList = this.db.collection('/users');
+    this.dishesList = this.db.collection('/dishes');
     this.getDishlistFromFire();
+    this.getUserListFromFire();
   }
+
 
 
   // ------------firebase------------
@@ -42,6 +46,25 @@ export class StorageService implements Cobserver{
     }); 
   }
 
+  getUserListFromFire(){
+    this.usersList.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({
+            id: c.payload.doc.id,
+            nick: c.payload.doc.data().nick,
+            admin: c.payload.doc.data().admin,
+            menager: c.payload.doc.data().menager,
+            banned: c.payload.doc.data().banned,
+            bucket: c.payload.doc.data().bucket,
+          })
+        ))
+    ).subscribe(x =>{
+       this.userlist = x;
+       this.userSubject.next(this.userlist);
+      });
+  }
+
   deleteDishFromFire(id:string){
     this.dishesList.doc(id).delete();
     this.getDishlistFromFire();
@@ -51,23 +74,46 @@ export class StorageService implements Cobserver{
     this.dishesList.doc(id).update({choosen: q});
   }
 
+
   // ------------firebase------------
 
   public getdishlistSubject(): Observable<Data[]>{
-      return this.dishSubject.asObservable();
+    return this.dishSubject.asObservable();
   }
   public getdishlist(){
     return this.dishlist;
   }
 
-  public pushDish(d:Data): void{
-    this.dishesList.add({...d});
+  public getuserlistSubject(): Observable<User[]>{
+    return this.userSubject.asObservable();
   }
+  public getuserlist(){
+    return this.userlist;
+  }
+
+  public pushDish(d:Data): void{
+    const data = {
+      name:d.name,
+      country:d.country,
+      type:d.type,
+      ingredients:d.ingredients,
+      output:d.output,
+      price:d.price, 
+      description:d.description,
+      link:d.link,
+      choosen:d.choosen
+    }
+    this.dishesList.add({...data});
+  }
+
+  public editDish(d:Data): void{
+    this.dishesList.doc(d.id).set(d);
+  }
+
 
   public getDichPrice(ix:number){
     return this.dishlist[ix].price;
   }
-
 
 
   observers:Observer[]=[];

@@ -35,20 +35,22 @@
 }
 .available{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 5px;
+    left: 5px;
     padding: 10px;
     min-width: 20px;
     border-radius: 20px;
-    background-color: rgba(36, 36, 36, 0.637);
+    background-color: rgba(0, 0, 0, 0.61);
     color: white;
     font-size: 20px;
     text-align: center;
+    cursor: default;
 }
 button{
     background-color: rgb(31, 30, 30);
     color: white;
     padding: 5px;
+    cursor: pointer;
 }
 .plus, .minus{
     width: 30px;
@@ -68,4 +70,23 @@ img{
 }
 .cheap{
     border:2px solid red;
+}
+.delite, .edit{
+    position: absolute;
+    right: 10px;
+    color: white;
+    border-radius: 30px;
+}
+.delite:hover, .edit:hover{
+    box-shadow: 0 0 10px white;
+}
+.delite{
+    top: 10px;
+    background-color: red;
+    border-color: red;
+}
+.edit{
+    bottom: 10px;
+    background-color: blue;
+    border-color: blue;
 }

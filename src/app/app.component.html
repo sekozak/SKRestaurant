@@ -10,14 +10,15 @@
                 <div class="leftMenu">
                     <a routerLink="/home" routerLinkActive="active"><span class="span"></span>Strona Głowna</a>
                     <a routerLink="/menu" routerLinkActive="active"><span class="span"></span>Menu</a>
-                    <a routerLink="/add" routerLinkActive="active"><span class="span"></span>Nowe danie</a>
+                    <a routerLink="/editmenu" routerLinkActive="active" [ngClass]="{'hide':!admin && !menager}"><span class="span"></span>Edit Menu</a>
+                    <a routerLink="/adminview" routerLinkActive="active" [ngClass]="{'hide':!admin}"><span class="span"></span>adminView</a>
                 </div>
                 <div class="rightMenu">
-                    <a [ngClass]="{'loged':!logged}"><span class="span"></span>{{nick}}</a>
-                    <a routerLink="/bucket" routerLinkActive="active"><span class="span"></span>Koszyk</a>
-                    <a routerLink="/login" routerLinkActive="active" [ngClass]="{'loged':logged}"><span class="span"></span>Login</a>
-                    <a routerLink="/register" routerLinkActive="active" [ngClass]="{'loged':logged}"><span class="span"></span>Register</a>
-                    <a routerLink="/home" (click)="logout()" [ngClass]="{'loged':!logged}"><span class="span"></span>Logout</a>
+                    <a [ngClass]="{'hide':!logged}" class="nick">{{nick}}</a>
+                    <a routerLink="/bucket" routerLinkActive="active" [ngClass]="{'hide':!logged}"><span class="span"></span>Koszyk</a>
+                    <a routerLink="/login" routerLinkActive="active" [ngClass]="{'hide':logged}"><span class="span"></span>Login</a>
+                    <a routerLink="/register" routerLinkActive="active" [ngClass]="{'hide':logged}"><span class="span"></span>Register</a>
+                    <a routerLink="/home" (click)="logout()" [ngClass]="{'hide':!logged}"><span class="span"></span>Logout</a>
                 </div>
             </div> 
         </nav>
@@ -26,3 +27,4 @@
         <router-outlet></router-outlet>
     </div>
 </div>
+<!-- <footer>© 2022 Copyright</footer> -->

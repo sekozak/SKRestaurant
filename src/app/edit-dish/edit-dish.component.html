@@ -1,4 +1,6 @@
-<div id="card" [ngClass]="{'cheap':info.price==minprice, 'expensive':info.price==maxprice}">
+<div id="card">
+    <button class="delite" (click)="cardix()">X</button>
+    <button class="edit" routerLink="/editdish/{{ix}}">EDIT</button>
     <span class="available" [ngClass]="{'lowAvailable':available < 4}">{{available}}</span>
     
     <a routerLink="/dish-details/{{ix}}"> <img src="{{info.link[0]}}"> </a>

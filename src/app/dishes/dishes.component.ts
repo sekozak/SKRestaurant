@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { Data } from '../data';
-import { BucketStorage } from '../bucketStorage';
 import { Observer } from '../observer';
 import { CurrencyStorageService } from '../currency-storage.service';
 import { StorageService } from '../storage.service';
@@ -33,7 +32,7 @@ export class DishesComponent implements OnInit, Observer {
   
   public dishlist:Data[]=[];
 
-  constructor(private storage:StorageService,private bucketObject:BucketStorage,private currencyObject:CurrencyStorageService) {
+  constructor(private storage:StorageService,private currencyObject:CurrencyStorageService) {
     this.currencyObject.addObserver(this);
     this.currency=currencyObject.getcurrency();
 
