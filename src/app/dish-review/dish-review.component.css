@@ -9,6 +9,7 @@
 .container{
     border: 3px solid grey;
     background-color: rgba(255, 255, 255, 0.151);
+    backdrop-filter: blur(3px);
     text-align: center;
     padding: 30px;
     margin: 50px;
@@ -20,12 +21,6 @@
     padding: 5px;
   }
 }
-/* @media (max-width: 700px) {
-  .container{
-    margin-left: 0px;
-    width: 250px;
-  }
-} */
 .form-group{
   position: relative;
   max-width: 250px;

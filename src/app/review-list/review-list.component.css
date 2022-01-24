@@ -6,10 +6,10 @@
     margin-top: 70px;
 }
 
-
 div{
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.178);
+    backdrop-filter: blur(3px);
     padding: 30px;
     font-size: 21px;
     text-align: center;
@@ -25,14 +25,3 @@ div{
         font-size: 17px;
     }
 }
-/* @media (max-width: 700px) {
-    div{
-        width: 250px;
-        margin-left: 0px;
-        font-size: 15px;
-    }
-    .title{
-        font-size: 20px;
-        text-align: left;
-    }
-} */

@@ -7,11 +7,7 @@
     margin-top: 100px;
     margin-bottom: 120px;
     cursor: default;
-    /* display: block; */
-    /* background: linear-gradient(to top right, rgb(0, 195, 255), rgb(255, 255, 255)); */
     color: lightsteelblue;
-    /* -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     -webkit-box-reflect: below 0px linear-gradient(transparent,rgba(0, 0, 0, 0.116));
     line-height: 0.7em;
     outline: none;

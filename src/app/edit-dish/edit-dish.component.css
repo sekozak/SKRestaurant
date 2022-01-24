@@ -4,6 +4,7 @@
     width: 70vw;
     min-height: 140px;
     background-color: rgba(0, 4, 250, 0.13);
+    backdrop-filter: blur(3px);
     font-weight: bold;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     position: relative;
@@ -21,8 +22,6 @@
         text-align: center;
     }
 }
-
-
 
 .top{
     height: 80%;
