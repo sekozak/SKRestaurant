@@ -1,4 +1,10 @@
-# Zad9
+# My restaurant page - angular project
+
+## Description
+
+Angular application with firebase database created from the scratch during one semester.
+
+<img src="mainPage.png"/>
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
