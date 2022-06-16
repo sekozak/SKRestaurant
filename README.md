@@ -2,7 +2,23 @@
 
 ## Description
 
-Angular application with firebase database created from the scratch during one semester.
+Angular application with firebase database and authentication created from the scratch during one semester.
+
+Functionabilities:
+ - guest: 
+   - can watch menu
+ -logged user:
+   - same things as guest
+   - can add meals to his basket
+   - can see meal details
+ - menager:
+   - same things as logged user
+   - can add new meal to menu
+   - can edit meals
+ - admin:
+   - same things as menager
+   - can manage every user role[user, menager, admin]
+
 
 <img src="mainPage.png"/>
 
