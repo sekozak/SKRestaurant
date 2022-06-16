@@ -7,7 +7,7 @@ Angular application with firebase database and authentication created from the s
 Functionabilities:
  - guest: 
    - can watch menu
- -logged user:
+ - logged user:
    - same things as guest
    - can add meals to his basket
    - can see meal details
