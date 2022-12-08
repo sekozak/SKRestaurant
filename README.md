@@ -1,10 +1,13 @@
-# My restaurant page - angular project
+# --- Introduction-to-Web-Aplications ---
 
-## Description
+<h3>Description</h3>
 
 Angular application with firebase database and authentication created from the scratch during one semester.
 
+
 <img src="mainPage.png"/>
+
+#
 
 <h3> Technologies </h3>
 
@@ -16,7 +19,6 @@ Angular application with firebase database and authentication created from the s
 - Angular
 - Firebase
 - Node.js
-
 
 #
 
@@ -32,6 +34,7 @@ Angular application with firebase database and authentication created from the s
 | [lab5]| Angular advanced, firebase connection  |
 | [lab6]| Angular + authentication handling + Firebase  |
 
+#
 
 <h3>Functionabilities:</h3>
 
