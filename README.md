@@ -6,7 +6,7 @@
 
 Angular application with firebase database and authentication created from the scratch during one semester.
 
-<img src="mainPage.png"/>
+<img src="HOME.png"/>
 
 #
 
